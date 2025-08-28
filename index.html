@@ -226,7 +226,13 @@
         
         .contact-info p {
             color: #666;
-            margin: 5px 0;
+            margin: 10px 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .contact-info a {
+            word-break: break-all;
         }
         
         .highlight {
@@ -247,6 +253,17 @@
             .header h1 { font-size: 2rem; }
             .service-grid { grid-template-columns: 1fr; }
             .container { margin: 10px; border-radius: 15px; }
+            .contact-info { padding: 20px 15px; }
+            .contact-info p { 
+                font-size: 0.9rem; 
+                margin: 8px 0;
+                text-align: center;
+            }
+            .contact-info a {
+                display: inline-block;
+                max-width: 100%;
+                word-break: break-all;
+            }
         }
     </style>
 </head>
