@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Especializados en Infoproductos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            animation: slideUp 1s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .intro {
+            padding: 40px 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        }
+        
+        .intro h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .services {
+            padding: 50px 30px;
+        }
+        
+        .services h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .services h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+            border-radius: 2px;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #ff6b6b;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .service-card h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,107,107,0.6);
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info p {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .highlight h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .service-grid { grid-template-columns: 1fr; }
+            .container { margin: 10px; border-radius: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Somos especialistas en Infoproductos</h1>
+            <p class="subtitle">Convierte tu conocimiento en un negocio digital rentable</p>
+        </div>
+        
+        <!-- Introducción -->
+        <div class="intro">
+            <h2>¿Tienes un infoproducto pero no sabes cómo lanzarlo al mercado?</h2>
+            <p>Hemos identificado las principales barreras que enfrentan los infoproductores y emprendedores digitales. Te ofrecemos soluciones completas y profesionales en todo el apartado técnico para la creación de tu infoproducto, para que puedas enfocar tu energía y tiempo en lo que mejor sabes hacer: <strong>crear contenido de valor</strong>.</p>
+        </div>
+        
+        <!-- Servicios -->
+        <div class="services">
+            <h2>Nuestros Servicios Especializados</h2>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <span class="service-icon">🌐</span>
+                    <h3>Páginas de Ventas y Embudos en Systeme</h3>
+                    <p>Diseñamos y configuramos páginas de ventas de alta conversión con embudos automatizados que venden por ti las 24 horas. Incluye integración completa y optimización para móviles.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">🔧</span>
+                    <h3>Configuración de Dominio y DNS</h3>
+                    <p>Gestionamos toda la configuración técnica de tu dominio personalizado. Tu marca lucirá profesional con URLs propias y certificados SSL para máxima confianza.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">🛒</span>
+                    <h3>Productos y Embudos en Hotmart</h3>
+                    <p>Creamos y configuramos tus productos en Hotmart con páginas de pago optimizadas, embudos de ventas efectivos y toda la estructura necesaria para maximizar conversiones.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">📱</span>
+                    <h3>Meta Ads: Facebook e Instagram</h3>
+                    <p>Configuración completa de Business Manager, cuentas publicitarias, creación de campañas efectivas, fan pages y conexión con Instagram para escalar tus ventas.</p>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">🎬</span>
+                    <h3>Edición Profesional en CapCut</h3>
+                    <p>Editamos tus videos de contenido y promocionales con calidad profesional. Desde reels hasta el VSL de tu página de ventas, tu contenido destacará en cualquier plataforma.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Destacado -->
+        <div class="highlight">
+            <h3>💡 ¿Por qué elegir nuestros servicios?</h3>
+            <p>✅ <strong>Experiencia real</strong> con infoproductores<br>
+            ✅ <strong>Conocimiento especializado</strong> en cada herramienta<br>
+            ✅ <strong>Enfoque en resultados</strong> y conversiones<br>
+            ✅ <strong>Soporte personalizado</strong> durante todo el proceso</p>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2>¿Listo para hacer despegar tu infoproducto?</h2>
+            <p>No pierdas más tiempo luchando con la tecnología.<br>Deja que un experto se encargue mientras tú te enfocas en crear contenido excepcional.</p>
+            <a href="https://wa.me/56974305555?text=Hola! Me interesa solicitar una consulta gratuita sobre sus servicios para infoproductos" class="cta-button">Solicita tu Consulta Gratuita</a>
+        </div>
+        
+        <!-- Información de contacto -->
+        <div class="contact-info">
+            <h3>📞 Contacto Directo</h3>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/56974305555" style="color: #ff6b6b; text-decoration: none;">+56 9 7430 5555</a></p>
+            <p><strong>Email:</strong> <a href="mailto:enfocatedigital@outlook.com" style="color: #ff6b6b; text-decoration: none;">enfocatedigital@outlook.com</a></p>
+            <p><strong>Instagram:</strong> <a href="https://instagram.com/enfocatedigital" style="color: #ff6b6b; text-decoration: none;">@enfocatedigital</a></p>
+        </div>
+    </div>
+</body>
+</html>
